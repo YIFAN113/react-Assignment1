@@ -17,7 +17,7 @@ const LoginPage = () => {
       navigate('/'); // Redirect to home page after login
     } catch (error) {
       console.error(error.message);
-      // Handle errors here, such as displaying a notification to the user
+      alert("Login failed");
     }
   };
 
@@ -29,7 +29,7 @@ const LoginPage = () => {
       navigate('/'); // Redirect to home page after registration
     } catch (error) {
       console.error(error.message);
-      // Handle errors here, such as displaying a notification to the user
+      alert("Registration failed");
     }
   };
 
