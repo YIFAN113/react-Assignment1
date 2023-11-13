@@ -23,6 +23,7 @@ const CurrentPopularMoviesPage = () => {
 
     const movies = data.results;
 
+
   return (
     <PageTemplate
         title="Current Popular"
