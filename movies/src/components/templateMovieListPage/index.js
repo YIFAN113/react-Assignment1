@@ -3,13 +3,17 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid";
+import AddPagination from "../pagination";
 
 function MovieListPageTemplate({ movies, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const [languageFilter, setLanguageFilter] = useState("All");
   const genreId = Number(genreFilter);
-
+  /* eslint-disable no-unused-vars */
+  const [,setCurrentPage] = useState(1);
+  //const paginate = (pageNumber) =>setCurrentPage(pageNumber);
+/* eslint-enable no-unused-vars */
   //Iterate through the language attribute of all movies, adding non-existent languages to the language array.
   const languages = ["All"];
   movies.map((l) => {
@@ -51,6 +55,7 @@ function MovieListPageTemplate({ movies, title, action }) {
           />
         </Grid>
         <MovieList action={action} movies={displayedMovies}></MovieList>
+        <AddPagination setPage={setCurrentPage} />
       </Grid>
     </Grid>
   );

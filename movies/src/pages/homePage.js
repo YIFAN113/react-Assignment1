@@ -4,10 +4,17 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import { useParams } from "react-router-dom";
 
-const HomePage = () => {
+const HomePage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const{page} = useParams()
+
+
+  const {  data, error, isLoading, isError }  = useQuery(
+    ["discover", { page: page }],
+    getMovies
+  )
 
   if (isLoading) {
     return <Spinner />
