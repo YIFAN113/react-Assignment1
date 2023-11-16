@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebaseApp'; 
 import { useNavigate } from 'react-router-dom';
-import '../css/loginPage.css';
+// import '../css/loginPage.css';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -34,31 +40,67 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login / Sign Up</h2>
-      <form onSubmit={handleLogin}>
-        <label>
-          Email:
-          <input 
-            type="email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
+    <Container component="main" maxWidth="xs" sx={{ bgcolor: 'grey.400'}}>
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Typography component="h1" variant="h5">
+          Login / Sign Up
+        </Typography>
+        <Box component="form" noValidate onSubmit={handleLogin} sx={{ mt: 1 }}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-        </label>
-        <label>
-          Password:
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            required 
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
-        <button type="submit">Login</button>
-        <button onClick={handleSignUp}>Sign Up</button>
-      </form>
-    </div>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Login
+          </Button>
+          <Button
+            fullWidth
+            variant="outlined"
+            color="primary"
+            sx={{ mt: 3, mb: 2 }}
+            onClick={handleSignUp}
+          >
+            Sign Up
+          </Button>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 
