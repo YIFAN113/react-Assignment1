@@ -34,6 +34,7 @@ install_dependencies:
 bundle_app:
   stage: build
   script:
+    - cd movies
     - npm run build
 
 exercise_job:
