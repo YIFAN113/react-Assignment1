@@ -16,6 +16,7 @@ function MovieListPageTemplate({ movies, title, action }) {
 /* eslint-enable no-unused-vars */
   //Iterate through the language attribute of all movies, adding non-existent languages to the language array.
   const languages = ["All"];
+  // eslint-disable-next-line array-callback-return
   movies.map((l) => {
     if(!languages.includes(l.original_language)){
       languages.push(l.original_language)
