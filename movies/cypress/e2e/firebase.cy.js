@@ -7,7 +7,7 @@ describe('LoginPage', () => {
       cy.get('input[name="email"]').type('20095253@mail.wit.ie');
       cy.get('input[name="password"]').type('ZQEHQU9j2');
       cy.get('form').contains('Login').click();
-      cy.url().should('eq', 'http://localhost:3000/')
+      cy.url().should('eq', 'http://localhost:3000/1')
     });
   
     it('allows a user to sign up', () => {
@@ -16,6 +16,6 @@ describe('LoginPage', () => {
       cy.get('input[name="email"]').type(uniqueEmail);
       cy.get('input[name="password"]').type('password');
       cy.get('button').contains('Sign Up').click();
-      cy.url().should('eq', 'http://localhost:3000/')
+      cy.url().should('eq', 'http://localhost:3000/1')
     });
   });
