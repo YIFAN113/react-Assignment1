@@ -1,49 +1,52 @@
 # Assignment 1 - ReactJS app.
 
-Name: [your name]
+Name: Yifan Gu
 
 ## Overview.
 
-[A brief statement on the content of this repository.]
+A basic react web app that expands on experimentation by adding some static pages, language filters, pagination functionality, and firebase authentication.
 
 ### Features.
-[ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
  
 1. topRatedMoviesPage
 2. currentPopularMoviesPage
 3. languageFilter
 4. firebase authentication
 5. pagination
+6. peopleListPage
+7. peopleDetailPage
 
 ## Setup requirements.
-
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+need to install firebase "npm install firebase"
 
 ## API endpoints.
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
-
-e.g.
 + Discover list of movies - discover/movie
 + Movie details - movie/:id
-+ Movie genres = /genre/movie/list
-+ Top Rated movies = /movie/top_rated
-+ Current Popular Movies = /discover/movie
-
++ Movie genres - /genre/movie/list
++ Top Rated movies - /movie/top_rated
++ Current Popular Movies - /discover/movie
++ peopleList - person/popular
++ PeopleDetail - person/:id
++ People Image - person/:id/images
++ Movies Image - movie/:id/images
 
 ## Routing.
 
-[ List the __new routes__ supported by your app and state the associated page.]
++ /login - Go to loginPage to register and log in to the user
++ /movies/top_Rated - Jump to topRatedMoviesPage to browse the list of the highest-rated movies in history
++ //movies/currentPopular - Jump to currentPopularPage to browse through the list of this year's most popular movies
++ /movies/people - Jump to peoplePage to browse through the list of the most popular actors
++ /people/:id - Jump to the peopleDetailPage to browse the basic information of the actors           
 
-+ /login
-+ /movies/top_Rated
-+ //movies/currentPopular
-+ etc.
+## Independent learning.
 
-[If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
+After learning the tutorial related to firebase third-party authentication and trying it in the app, it can now be logged in and registered with an email account and password, and now it only jumps back to the home page after the login is completed.
+Get a page of language categories by iterating through the language of a page of the movie and add it to the MenuItem.
+Learned about pagination on mui.
 
-## Independent learning (If relevant).
+## Reference.
 
-Itemize the technologies/techniques you researched independently and adopted in your project, 
-i.e. aspects not covered in the lectures/labs. Include the source code filenames that illustrate these 
-(we do not require code excerpts) and provide references to the online resources that helped you (articles/blogs).
+UI and Pagination: "https://mui.com/"
+firebase authentication: "https://firebase.google.com/docs/auth/web/start?authuser=0"
+
