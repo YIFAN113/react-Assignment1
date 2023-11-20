@@ -52,7 +52,7 @@ e2etest:
   - cd movies
   - echo "Run tests in headless mode"
   - npx serve -s ./build  -l 3000  &
-  - if [ ! -d ~/.cache/Cypress/13.5.0/Cypress ]; then npm install cypress; fi
+  - CYPRESS_CACHE_FOLDER="$CI_PROJECT_DIR/cache/Cypress" npx cypress install
   - npx cypress run --browser chrome 
 
 build_jobX:
