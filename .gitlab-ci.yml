@@ -15,10 +15,11 @@ cache:
    key:
      files:
         - movies/package.json
-   paths:
+    paths:
       - movies/.npm
       - movies/cache/Cypress
       - movies/node_modules
+      - movies/build
 
 
 # Jobs 
@@ -27,9 +28,6 @@ install_dependencies:
   script:
     - cd movies
     - npm ci --cache .npm --prefer-offline
-  artifacts:
-    paths:
-      - movies/node_modules/
 
 bundle_app:
   stage: build
