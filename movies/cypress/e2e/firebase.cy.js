@@ -21,6 +21,6 @@ describe('LoginPage', () => {
       cy.get('input[name="email"]').type(uniqueEmail);
       cy.get('input[name="password"]').type('password');
       cy.get('button').contains('Sign Up').click();
-      cy.url().should('eq', 'http://localhost:3000/')
+      cy.url().should('eq', 'http://localhost:3000/1')
     });
   });
