@@ -23,4 +23,18 @@ describe('LoginPage', () => {
       cy.get('button').contains('Sign Up').click();
       cy.url().should('eq', 'http://localhost:3000/1')
     });
+
+  // You can pass the local headless test, but the test pipeline will fail because the console information cannot be read
+    it('displays an error message for invalid login in console', () => {
+      cy.get('input[name="email"]').type('invalid@example.com');
+      cy.get('input[name="password"]').type('wrongpassword');
+      cy.get('form').contains('Login').click();
+      cy.window().then((win) => {
+        cy.stub(win.console, 'log').as('consoleLog');
+      });
+    
+      cy.get('@consoleLog').should('have.been.calledWith', 'Login failed');
+    });
   });
+
+ 
