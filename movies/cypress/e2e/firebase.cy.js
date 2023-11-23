@@ -21,6 +21,20 @@ describe('LoginPage', () => {
       cy.get('input[name="email"]').type(uniqueEmail);
       cy.get('input[name="password"]').type('password');
       cy.get('button').contains('Sign Up').click();
-      cy.url().should('eq', 'http://localhost:3000/1')
+      cy.url().should('eq', 'http://localhost:3000/')
+    });
+
+    it('displays an error message for invalid login in console', () => {
+      cy.get('input[name="email"]').type('invalid@example.com');
+      cy.get('input[name="password"]').type('wrongpassword');
+      cy.get('form').contains('Login').click();
+      cy.window().then((win) => {
+        cy.stub(win.console, 'log').as('consoleLog');
+      });
+    
+      // 断言控制台输出了特定的错误消息
+      cy.get('@consoleLog').should('have.been.calledWith', 'Login failed');
     });
   });
+
+ 
