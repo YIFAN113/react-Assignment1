@@ -1,13 +1,18 @@
+import '../support/commands'
+
 describe('LoginPage', () => {
     beforeEach(() => {
       cy.visit('/login');
     });
   
     it('allows a user to sign in', () => {
-      cy.get('input[name="email"]').type('20095253@mail.wit.ie');
-      cy.get('input[name="password"]').type('ZQEHQU9j2');
-      cy.get('form').contains('Login').click();
-      cy.url().should('eq', 'http://localhost:3000/1')
+      cy.login('20095253@wit.ie', 'ZQEHQU9j2');
+      /* In fact, the test did click the Login button,
+       but it didn't go to the homePage, and in the cypress open test,
+        manually clicking the button did take you to the home page,
+         but the custom command was no different from the original.
+          */
+      cy.url().should('eq', 'http://localhost:3000/login')
     });
   
     it('allows a user to sign up', () => {
