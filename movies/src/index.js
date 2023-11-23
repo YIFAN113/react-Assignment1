@@ -1,13 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage";
-import MoviePage from "./pages/movieDetailsPage";
+//import MoviePage from "./pages/movieDetailsPage";
 import LoginPage from './pages/loginPage'; 
-import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
-import MovieReviewPage from "./pages/movieReviewPage";
+//import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
+//import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
-import UpcomingMoviePage from "./pages/upcomingMoviesPage";
+//import UpcomingMoviePage from "./pages/upcomingMoviesPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
@@ -16,6 +16,10 @@ import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import CurrentPopularMoviesPage from "./pages/currentPopularMoviesPage";
 import PeoplePage from "./pages/peoplePage"
 import PeopleDetailPage from "./pages/peopleDetailPage";
+const MoviePage = lazy(() => import("./pages/movieDetailsPage"));
+const FavoriteMoviesPage = lazy(() => import("./pages/favoriteMoviesPage"));
+const UpcomingMoviePage = lazy(() => import("./pages/upcomingMoviesPage"));
+const MovieReviewPage = lazy(() => import("./pages/movieReviewPage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +37,7 @@ const App = () => {
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
            <Route path="/movies/upcoming" element={<UpcomingMoviePage />} /> 
@@ -47,6 +52,7 @@ const App = () => {
           <Route path="/movies/people" element= {<PeoplePage/>}/>
           <Route path="/people/:id" element= {<PeopleDetailPage/>}/> 
         </Routes>
+        </Suspense>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
