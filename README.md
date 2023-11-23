@@ -1,4 +1,4 @@
-# Assignment 1 - ReactJS app.
+# Assignment 1 - ReactJS app & Agile Software Practice.
 
 Name: Yifan Gu
 
@@ -18,6 +18,26 @@ A basic react web app that expands on experimentation by adding some static page
 
 ## Setup requirements.
 need to install firebase "npm install firebase"
+
+
+## Automated Tests.
+1. cypress/e2e/firebase.cy.js - Firebase third-party authentication for registration and login using email address and password
+2. cypress/e2e/currentPopular.cy.js - Users can check out the most popular movies of the year, and the page returns the 20 most popular movies of the year.
+3. cypress/e2e/filtering.cy.js - Users can filter the 20 movies on the current page by language.
+4. cypress/e2e/topRated.cy.js - Users can view a list of the best movies in history.
+
+## Error/Exception testing.
+Users receive a message when they fail to log in or register.
+
+## Cypress Custom commands.
+1. cypress/e2e/currentPopular
+2. cypress/e2e/topRated.cy.js
+
+## Code Splitting.
+1. src/index.js
+
+## pull Requests.
+I used the same file in assignments for both web and agile courses
 
 ## API endpoints.
 
