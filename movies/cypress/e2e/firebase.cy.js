@@ -21,9 +21,10 @@ describe('LoginPage', () => {
       cy.get('input[name="email"]').type(uniqueEmail);
       cy.get('input[name="password"]').type('password');
       cy.get('button').contains('Sign Up').click();
-      cy.url().should('eq', 'http://localhost:3000/')
+      cy.url().should('eq', 'http://localhost:3000/1')
     });
 
+  // You can pass the local headless test, but the test pipeline will fail because the console information cannot be read
     it('displays an error message for invalid login in console', () => {
       cy.get('input[name="email"]').type('invalid@example.com');
       cy.get('input[name="password"]').type('wrongpassword');
@@ -32,7 +33,6 @@ describe('LoginPage', () => {
         cy.stub(win.console, 'log').as('consoleLog');
       });
     
-      // 断言控制台输出了特定的错误消息
       cy.get('@consoleLog').should('have.been.calledWith', 'Login failed');
     });
   });
