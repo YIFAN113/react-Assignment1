@@ -55,7 +55,7 @@ https://github.com/YIFAN113/react-Assignment1/pulls
 
 + /login - Go to loginPage to register and log in to the user
 + /movies/top_Rated - Jump to topRatedMoviesPage to browse the list of the highest-rated movies in history
-+ //movies/currentPopular - Jump to currentPopularPage to browse through the list of this year's most popular movies
++ /movies/currentPopular - Jump to currentPopularPage to browse through the list of this year's most popular movies
 + /movies/people - Jump to peoplePage to browse through the list of the most popular actors
 + /people/:id - Jump to the peopleDetailPage to browse the basic information of the actors           
 
