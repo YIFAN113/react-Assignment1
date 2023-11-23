@@ -37,7 +37,7 @@ Users receive a message when they fail to log in or register.
 1. src/index.js
 
 ## pull Requests.
-I used the same file in assignments for both web and agile courses
+https://github.com/YIFAN113/react-Assignment1/pulls
 
 ## API endpoints.
 
