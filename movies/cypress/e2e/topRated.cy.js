@@ -1,17 +1,11 @@
+import '../support/commands';
+
 let movies;
 let moviesTopRated;
 
 describe("Popular", () => {
     before(() => {
-        cy.request(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
-        "TMDB_KEY"
-      )}&language=en-US&include_adult=false&include_video=false&page=1`
-            )
-            .its("body")
-            .then((response) => {
-                movies = response.results;
-            });
+        cy.requestMovies(`https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&include_adult=false&include_video=false&page=1`, "movies");
     });
     beforeEach(() => {
         cy.visit(`/`);
