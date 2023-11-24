@@ -73,3 +73,8 @@ firebase authentication: "https://firebase.google.com/docs/auth/web/start?authus
 ## Video
 https://youtu.be/IGwpTcFJjn8
 
+## GitLab and GitHub
+https://gitlab.com/20095253/agile-ca-01
+https://github.com/YIFAN113/react-Assignment1
+
+
