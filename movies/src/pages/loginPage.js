@@ -19,7 +19,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      //alert("Login successful!");
+      alert("Login successful!");
       navigate('/'); // Redirect to home page after login
     } catch (error) {
       console.error(error.message);
@@ -32,7 +32,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      //alert("Registration successful!");
+      alert("Registration successful!");
       navigate('/'); // Redirect to home page after registration
     } catch (error) {
       console.error(error.message);
